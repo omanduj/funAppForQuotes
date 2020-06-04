@@ -6,6 +6,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Icon, Product } from '../components';
 import { Images, materialTheme } from '../constants';
 import { HeaderHeight } from "../constants/utils";
+import QuoteViewer from '../screens/QuoteViewer';
+
 
 import products from '../constants/products';
 
@@ -33,20 +35,25 @@ export default class NewScreen extends React.Component {
         </Block>
 
 
-        <Product product={products[0]} horizontal />
+        {//<Product product={products[0]} horizontal />
+        }
 
 
         <ScrollView
           showsVerticalScrollIndicator={false}>
           <Block flex>
               <Block>
-                <TouchableOpacity style={{ height: 120 }} onPress={() => {navigation.navigate(Menu)}}>
 
+
+                <TouchableOpacity style={{ height: 120 }} onPress={() => {navigation.navigate("QuoteViewer")}}>
                   <Block>
                     <Text color="green" size={35} style={{ paddingBottom: 100, marginLeft: 15 }}>Qoute Generator</Text>
                   </Block>
                 </TouchableOpacity>
               </Block>
+
+
+
 
 
               <Block>
