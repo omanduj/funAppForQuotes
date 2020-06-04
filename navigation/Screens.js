@@ -8,13 +8,14 @@ import { Block, Text, theme } from "galio-framework";
 import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
 import OnboardingScreen from '../screens/Onboarding';
-import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import NancyMandujano from '../screens/NancyMandujano';
 import UrielMandujano from '../screens/UrielMandujano';
 
 import NewScreen from '../screens/newScreen';
+import QuoteViewer from '../screens/QuoteViewer';
+
 
 
 import CustomDrawerContent from './Menu';
@@ -59,6 +60,7 @@ function ProfileStack(props) {
     </Stack.Navigator>
   );
 }
+
 
 
 function NancyMandujanoStack(props) {
@@ -180,7 +182,7 @@ function HomeStack(props) {
         }}
       />
 
-      
+
     </Stack.Navigator>
   );
 }
@@ -319,9 +321,11 @@ function AppStack(props) {
         }}
       />
 
+
+
       <Drawer.Screen
-        name="UrielMandujano"
-        component={ProfileStack}
+        name="QuoteViewer"
+        component={QuoteViewer}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
@@ -334,6 +338,36 @@ function AppStack(props) {
         }}
       />
 
+      <Drawer.Screen
+        name="UrielMandujano"
+        component={QuoteViewer}
+        options={{
+          drawerIcon: ({ focused }) => (
+            <Icon
+              size={16}
+              name="circle-10"
+              family="GalioExtra"
+              color={focused ? "white" : materialTheme.COLORS.MUTED}
+            />
+          )
+        }}
+      />
+
+
+      <Drawer.Screen
+        name="Qoute Viewer"
+        component={QuoteViewer}
+        options={{
+          drawerIcon: ({ focused }) => (
+            <Icon
+              size={16}
+              name="circle-10"
+              family="GalioExtra"
+              color={focused ? "white" : materialTheme.COLORS.MUTED}
+            />
+          )
+        }}
+      />
 
       <Drawer.Screen
         name="Settings"
