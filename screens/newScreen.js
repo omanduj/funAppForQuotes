@@ -7,6 +7,9 @@ import { Icon, Product } from '../components';
 import { Images, materialTheme } from '../constants';
 import { HeaderHeight } from "../constants/utils";
 import QuoteViewer from '../screens/QuoteViewer';
+import QuoteViewer2 from '../screens/QuoteViewer2';
+import QuoteViewer3 from '../screens/QuoteViewer3';
+
 
 
 import products from '../constants/products';
@@ -52,7 +55,7 @@ export default class NewScreen extends React.Component {
               </Block>
 
               <Block>
-                <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer")}}>
+                <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer2")}}>
                   <Block>
                     <Text color="white" size={35} style={{ paddingBottom: 100, marginLeft: 57 }}>Qoute Generator</Text>
                   </Block>
@@ -60,7 +63,7 @@ export default class NewScreen extends React.Component {
               </Block>
 
               <Block>
-                <TouchableOpacity style={{ height: 120 }}>
+              <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer3")}}>
                   <Block>
                     <Text color="white" size={35} style={{ paddingBottom: 100, marginLeft: 85 }}>Qoute alarm</Text>
                   </Block>
