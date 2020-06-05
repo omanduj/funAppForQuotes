@@ -45,7 +45,8 @@ export default class NewScreen extends React.Component {
               <Block>
 
 
-                <TouchableOpacity style={{ height: 120 }} onPress={() => {navigation.navigate("QuoteViewer")}}>
+                <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer")}}>
+
                   <Block>
                     <Text color="green" size={35} style={{ paddingBottom: 100, marginLeft: 15 }}>Qoute Generator</Text>
                   </Block>
