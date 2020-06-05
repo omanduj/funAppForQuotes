@@ -31,6 +31,7 @@ const elements = [
   </Block>
 ];
 
+
 export default class QuoteViewer extends React.Component {
 
   render() {
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   myImage:{
     marginTop: 0,
     width: width,
-    height: 750,
+    height: 700,
 
   },
   profile: {
@@ -86,7 +87,8 @@ const styles = StyleSheet.create({
     height: height / 2,
   },
   profileDetails: {
-    paddingTop: theme.SIZES.BASE * 4,
+    paddingTop: theme.SIZES.BASE * 47,
+    paddingLeft: 45,
     justifyContent: 'flex-end',
     position: 'relative',
   },
