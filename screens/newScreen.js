@@ -42,34 +42,27 @@ export default class NewScreen extends React.Component {
         <ScrollView
           showsVerticalScrollIndicator={false}>
           <Block flex>
+
               <Block>
-
-
-                <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer")}}>
-
+                <TouchableOpacity style={{ height: 100 }} onPress={() => {this.props.navigation.navigate("QuoteViewer")}}>
                   <Block>
-                    <Text color="green" size={35} style={{ paddingBottom: 100, marginLeft: 15 }}>Qoute Generator</Text>
+                    <Text color="white" size={35} style={{ paddingBottom: 1000, marginLeft: 85 }}>Qoute Viewer</Text>
                   </Block>
                 </TouchableOpacity>
               </Block>
 
-
-
-
+              <Block>
+                <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer")}}>
+                  <Block>
+                    <Text color="white" size={35} style={{ paddingBottom: 100, marginLeft: 57 }}>Qoute Generator</Text>
+                  </Block>
+                </TouchableOpacity>
+              </Block>
 
               <Block>
                 <TouchableOpacity style={{ height: 120 }}>
                   <Block>
-                    <Text color="green" size={35} style={{ paddingBottom: 100, marginLeft: 15 }}>Qoute alarm</Text>
-                  </Block>
-                </TouchableOpacity>
-              </Block>
-
-
-              <Block>
-                <TouchableOpacity style={{ height: 100 }}>
-                  <Block>
-                    <Text color="green" size={35} style={{ paddingBottom: 1000, marginLeft: 15 }}>Qoute Viewer</Text>
+                    <Text color="white" size={35} style={{ paddingBottom: 100, marginLeft: 85 }}>Qoute alarm</Text>
                   </Block>
                 </TouchableOpacity>
               </Block>
