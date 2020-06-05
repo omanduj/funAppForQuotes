@@ -16,22 +16,6 @@ import products from '../constants/products';
 const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
-const elements = [
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>I Love To Go To The Beach At Night</Text>
-  </Block>,
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>I snore</Text>
-  </Block>,
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>I have fun</Text>
-  </Block>,
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>Snails</Text>
-  </Block>
-];
-
-
 const data = [
   { title: "\"Title\"", content: "\"Inserted Quote\"",
     icon: {
@@ -60,10 +44,8 @@ export default class QuoteViewer2 extends React.Component {
               <Block flex style={styles.profileDetails}>
                   <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: -15 }}>Quote Viewer #2</Text>
               </Block>
-
-              </ImageBackground>
+            </ImageBackground>
         </Block>
-
         <Block style={{ height: 600, paddingBottom: 200,  marginLeft: 35 }}>
           <Accordion dataArray={data} />
         </Block>
