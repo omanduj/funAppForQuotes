@@ -26,7 +26,8 @@ function CustomDrawerContent({
     "Settings",
     "Components",
     "QuoteViewer",
-    "QuoteViewer2"
+    "QuoteViewer2",
+    "QuoteViewer3"
 
   ];
 
