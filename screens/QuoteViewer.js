@@ -45,7 +45,7 @@ export default class QuoteViewer extends React.Component {
             source={pic}
             style={styles.myImage}>
               <Block flex style={styles.profileDetails}>
-                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: 15 }}>Qoute Viewer</Text>
+                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: 15 }}>Quote Viewer</Text>
               </Block>
 
               </ImageBackground>

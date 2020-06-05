@@ -355,7 +355,7 @@ function AppStack(props) {
 
 
       <Drawer.Screen
-        name="Qoute Viewer"
+        name="Quote Viewer"
         component={QuoteViewer}
         options={{
           drawerIcon: ({ focused }) => (

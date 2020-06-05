@@ -27,7 +27,7 @@ export default class Onboarding extends React.Component {
                 <Text color="white" size={60}>Quoke</Text>
               </Block>
               <Text size={16} color='rgba(255,255,255,0.6)'>
-                <Text color="white" size={16}> Get Ready to record your friends best qoutes! </Text>
+                <Text color="white" size={16}> Get Ready to record your friends best quotes! </Text>
               </Text>
             </Block>
             <Block center>
