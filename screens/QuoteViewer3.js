@@ -10,22 +10,14 @@ import { HeaderHeight } from "../constants/utils";
 import { NavigationContainer } from "../App.js"
 
 import products from '../constants/products';
+import QuoteAlarm from '../screens/QuoteAlarm';
+
 
 
 
 const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
-const data = [
-  { title: "\"Title\"", content: "\"Inserted Quote\"",
-    icon: {
-      family: 'material',
-      size: 16,
-    }
- },
-  { title: "Uriel Smells", content: "He said he smells like a fish" },
-  { title: "Baby Pooped", content: "She went outside and simply pooped" }
-];
 
 export default class QuoteViewer3 extends React.Component {
 
@@ -45,6 +37,12 @@ export default class QuoteViewer3 extends React.Component {
               </Block>
             </ImageBackground>
         </Block>
+
+        <TouchableOpacity style={{ height: 100 }} onPress={() => {this.props.navigation.navigate("QuoteAlarm")}}>
+          <Text color="white" size={35}> Click Here For Real Alarm Clock </Text>
+        </TouchableOpacity>
+
+
 
         <Block style={styles.ButtonDetails}>
           <Button round capitalize>"Title of Quote"</Button>
