@@ -9,6 +9,7 @@ import { HeaderHeight } from "../constants/utils";
 import QuoteViewer from '../screens/QuoteViewer';
 import QuoteViewer2 from '../screens/QuoteViewer2';
 import QuoteViewer3 from '../screens/QuoteViewer3';
+import QuoteAlarm from '../screens/QuoteAlarm';
 
 
 
