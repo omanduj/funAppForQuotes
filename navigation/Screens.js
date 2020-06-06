@@ -17,6 +17,7 @@ import NewScreen from '../screens/newScreen';
 import QuoteViewer from '../screens/QuoteViewer';
 import QuoteViewer2 from '../screens/QuoteViewer2';
 import QuoteViewer3 from '../screens/QuoteViewer3';
+import QuoteAlarm from '../screens/QuoteAlarm';
 
 
 
@@ -392,6 +393,23 @@ function AppStack(props) {
           )
         }}
       />
+
+      <Drawer.Screen
+        name="QuoteAlarm"
+        component={QuoteAlarm}
+        options={{
+          drawerIcon: ({ focused }) => (
+            <Icon
+              size={16}
+              name="circle-10"
+              family="GalioExtra"
+              color={focused ? "white" : materialTheme.COLORS.MUTED}
+            />
+          )
+        }}
+      />
+
+
       <Drawer.Screen
         name="UrielMandujano"
         component={NewScreen}
