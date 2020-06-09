@@ -48,7 +48,7 @@ export default class NewScreen extends React.Component {
           <Block flex>
 
               <Block>
-                <TouchableOpacity style={{ height: 100 }} onPress={() => {this.props.navigation.navigate("QuoteViewer")}}>
+                <TouchableOpacity style={{ height: 100 }} onPress={() => {this.props.navigation.navigate("QuoteViewer2")}}>
                   <Block>
                     <Text color="white" size={35} style={{ paddingBottom: 1000, marginLeft: 85 }}>Qoute Viewer</Text>
                   </Block>
@@ -64,7 +64,7 @@ export default class NewScreen extends React.Component {
               </Block>
 
               <Block>
-              <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer3")}}>
+              <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteAlarm")}}>
                   <Block>
                     <Text color="white" size={35} style={{ paddingBottom: 100, marginLeft: 85 }}>Qoute alarm</Text>
                   </Block>
