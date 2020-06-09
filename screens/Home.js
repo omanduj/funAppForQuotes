@@ -118,6 +118,6 @@ const styles = StyleSheet.create({
   },
   products: {
     width: width - theme.SIZES.BASE * 2,
-    paddingVertical: theme.SIZES.BASE * 2,
+    paddingVertical: theme.SIZES.BASE * 1,
   },
 });
