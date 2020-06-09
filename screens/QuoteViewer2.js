@@ -16,18 +16,6 @@ import products from '../constants/products';
 const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
-const data = [
-  { title: "\"Title\"", content: "\"Inserted Quote\"",
-    icon: {
-      family: 'material',
-      size: 16,
-    }
- },
-  { title: "Uriel Smells", content: "He said he smells like a fish" },
-  { title: "Baby Pooped", content: "She went outside and simply pooped" }
-];
-
-
 export default class QuoteViewer2 extends React.Component {
 
   render() {
@@ -42,12 +30,12 @@ export default class QuoteViewer2 extends React.Component {
             source={pic}
             style={styles.myImage}>
               <Block flex style={styles.profileDetails}>
-                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: -15 }}>Quote Viewer #2</Text>
+                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: 15 }}>Quote Viewer</Text>
               </Block>
             </ImageBackground>
         </Block>
-        <Block style={{ height: 600, paddingBottom: 200,  marginLeft: 35 }}>
-          <Accordion dataArray={data} />
+        <Block style={{ height: 600, paddingBottom: 110,  marginLeft: 30 , marginRight: 30}}>
+          <Product style={styles.productPic} product= {products[0]}  />
         </Block>
 
       </Block>
@@ -67,7 +55,6 @@ const styles = StyleSheet.create({
     marginTop: 0,
     width: width,
     height: 700,
-
   },
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
