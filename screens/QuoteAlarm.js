@@ -1,17 +1,19 @@
-import React from 'react';
-import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform,  View } from 'react-native';
 import { Block, Text, theme, Button, Input } from 'galio-framework';
+import { Container, Header, Content, DatePicker } from 'native-base';
 
 import { LinearGradient } from 'expo-linear-gradient';
+import TimePicker from 'react-native-simple-time-picker';
 
 import { Icon, Product } from '../components';
 import { Images, materialTheme } from '../constants';
 import { HeaderHeight } from "../constants/utils";
 import { NavigationContainer } from "../App.js"
 
-
-
 import products from '../constants/products';
+
+
 
 
 const { width, height } = Dimensions.get('screen');
@@ -20,8 +22,23 @@ const thumbMeasure = (width - 48 - 32) / 3;
 
 
 export default class QuoteAlarm extends React.Component {
+  state = {
+    selectedHours: 0,
+    //initial Hours
+    selectedMinutes: 0,
+    //initial Minutes
+  }
+  constructor(props) {
+    super(props);
+    this.state = { chosenDate: new Date() };
+    this.setDate = this.setDate.bind(this);
+  }
+  setDate(newDate) {
+    this.setState({ chosenDate: newDate });
+  }
 
   render() {
+    const { selectedHours, selectedMinutes } = this.state;
     let pic = {
       uri: 'https://i.redd.it/29p3n3v8tjv21.jpg'
     };
@@ -33,36 +50,52 @@ export default class QuoteAlarm extends React.Component {
             source={pic}
             style={styles.myImage}>
               <Block flex style={styles.profileDetails}>
-                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: -15 }}>Quote Alarm</Text>
+                  <Text color="orange" size={45} style={{ paddingBottom: 550, marginLeft: 31 }}>Quote Alarm</Text>
               </Block>
             </ImageBackground>
         </Block>
 
-        <Block style={{ height: 600 }}>
+          <Container style={{marginBottom: 15, marginLeft: 50, marginRight: 50, paddingBottom: 1}}>
+              <Content>
+                <DatePicker
+                  defaultDate={new Date(2018, 4, 4)}
+                  minimumDate={new Date(2018, 1, 1)}
+                  maximumDate={new Date(2018, 12, 31)}
+                  locale={"en"}
+                  timeZoneOffsetInMinutes={undefined}
+                  modalTransparent={false}
+                  animationType={"fade"}
+                  androidMode={"default"}
+                  placeHolderText="Select date"
+                  textStyle={{ color: "green" }}
+                  placeHolderTextStyle={{ color: "#d3d3d3" }}
+                  onDateChange={this.setDate}
+                  disabled={false}
+                />
+                <Text style = {{marginLeft: 50}}>
+                  Chosen Date: {this.state.chosenDate.toString().substr(4, 12)}
+                </Text>
+            </Content>
+          </Container>
 
-          <Input placeholder="regular" />
-          <Input placeholder="theme" color={theme.COLORS.THEME} style={{ borderColor: theme.COLORS.THEME }} placeholderTextColor={theme.COLORS.THEME} />
-          <Input placeholder="info" color={theme.COLORS.INFO} style={{ borderColor: theme.COLORS.INFO }} placeholderTextColor={theme.COLORS.INFO}/>
-          <Input placeholder="warning" color={theme.COLORS.WARNING} style={{ borderColor: theme.COLORS.WARNING }} placeholderTextColor={theme.COLORS.WARNING}/>
-          <Input placeholder="error" color={theme.COLORS.ERROR} style={{ borderColor: theme.COLORS.ERROR }} placeholderTextColor={theme.COLORS.ERROR}/>
-          <Input placeholder="success" color={theme.COLORS.SUCCESS} style={{ borderColor: theme.COLORS.SUCCESS }} placeholderTextColor={theme.COLORS.SUCCESS}/>
-        </Block>
 
+        <View style={styles.container}>
+          <Text>{selectedHours}hr:{selectedMinutes}min</Text>
+          <TimePicker
+            selectedHours={selectedHours}
+            //initial Hourse value
+            selectedMinutes={selectedMinutes}
+            //initial Minutes value
+            onChange={(hours, minutes) => this.setState({
+                 selectedHours: hours, selectedMinutes: minutes
+           })}
+          />
+        </View>
 
       </Block>
     );
   }
 }
-
-
-  {// Maybe use accordian pop out when the button is clicked?
-  }
-
-
-
-
-
-
 
 
 
@@ -146,5 +179,14 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: '30%',
     position: 'absolute',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    marginLeft:50,
+    marginRight:50,
+    marginBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
