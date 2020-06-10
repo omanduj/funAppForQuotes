@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform, TouchableOpacity } from 'react-native';
-import { Block, Text, theme, Button, Card, DeckSwiper } from 'galio-framework';
+import { Block, Text, theme, Button, Card, DeckSwiper, Accordion } from 'galio-framework';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -16,23 +16,7 @@ import products from '../constants/products';
 const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
-const elements = [
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>I Love To Go To The Beach At Night</Text>
-  </Block>,
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>I snore</Text>
-  </Block>,
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>I have fun</Text>
-  </Block>,
-  <Block style={{ backgroundColor: '#FFB6C1', height: 250, width: 250 }}>
-    <Text>Snails</Text>
-  </Block>
-];
-
-
-export default class QuoteViewer extends React.Component {
+export default class QuoteViewer2 extends React.Component {
 
   render() {
     let pic = {
@@ -46,12 +30,13 @@ export default class QuoteViewer extends React.Component {
             source={pic}
             style={styles.myImage}>
               <Block flex style={styles.profileDetails}>
-                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: -15 }}>Quote Viewer #1</Text>
+                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: 15 }}>Quote Viewer</Text>
               </Block>
             </ImageBackground>
         </Block>
-        <DeckSwiper components={elements} />
-
+        <Block style={{ height: 600, paddingBottom: 110,  marginLeft: 30 , marginRight: 30}}>
+          <Product style={styles.productPic} product= {products[0]}  />
+        </Block>
 
       </Block>
     );
@@ -70,7 +55,6 @@ const styles = StyleSheet.create({
     marginTop: 0,
     width: width,
     height: 700,
-
   },
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
