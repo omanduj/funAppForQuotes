@@ -6,8 +6,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Icon, Product } from '../components';
 import { Images, materialTheme } from '../constants';
 import { HeaderHeight } from "../constants/utils";
+import QuoteWriter from '../screens/QuoteWriter';
 import QuoteViewer from '../screens/QuoteViewer';
-import QuoteViewer2 from '../screens/QuoteViewer2';
 import QuoteViewer3 from '../screens/QuoteViewer3';
 import QuoteAlarm from '../screens/QuoteAlarm';
 
@@ -48,7 +48,7 @@ export default class NewScreen extends React.Component {
           <Block flex>
 
               <Block>
-                <TouchableOpacity style={{ height: 100 }} onPress={() => {this.props.navigation.navigate("QuoteViewer2")}}>
+                <TouchableOpacity style={{ height: 100 }} onPress={() => {this.props.navigation.navigate("QuoteViewer")}}>
                   <Block>
                     <Text color="white" size={35} style={{ paddingBottom: 1000, marginLeft: 85 }}>Qoute Viewer</Text>
                   </Block>
@@ -56,9 +56,9 @@ export default class NewScreen extends React.Component {
               </Block>
 
               <Block>
-                <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteViewer2")}}>
+                <TouchableOpacity style={{ height: 120 }} onPress={() => {this.props.navigation.navigate("QuoteWriter")}}>
                   <Block>
-                    <Text color="white" size={35} style={{ paddingBottom: 100, marginLeft: 57 }}>Qoute Generator</Text>
+                    <Text color="white" size={35} style={{ paddingBottom: 100, marginLeft: 85 }}>Qoute Writer</Text>
                   </Block>
                 </TouchableOpacity>
               </Block>
