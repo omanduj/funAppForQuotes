@@ -44,10 +44,10 @@ class Product extends React.Component {
     const imageStyles = [styles.image, full ? styles.fullImage : styles.horizontalImage, imageStyle];
 
     return (
-
+      <Block flex>
         <Block row={horizontal} card flex style={[styles.product, styles.shadow, style]}>
           <TouchableWithoutFeedback onPress={() => navigation.navigate('UrielMandujano', { product: product })}>
-            <ImageBackground source={pic2} style={styles.curvePic}>
+            <ImageBackground source={pic2} imageStyle = {styles.curvePic} style={styles.curvePic2}>
 
 
               <Block flex style={[styles.imageContainer, styles.shadow]}>
@@ -57,17 +57,17 @@ class Product extends React.Component {
           </TouchableWithoutFeedback>
 
 
-
           <TouchableWithoutFeedback onPress={() => this.toggleSwitch()}>
               <Block flex style={styles.productDescription}>
                 <Text color="darkblue" size={20} style={styles.paddingName}>Nancy Mandujano's Quotes</Text>
-                <Block style={{ height: 310 }}>
+                <Block style={{ paddingTop: 0, height: 310 }}>
                     {this.state.showAccordian ? <Accordion dataArray={data} /> : null}
                 </Block>
               </Block>
           </TouchableWithoutFeedback>
 
       </Block>
+    </Block>
     );
   }
 }
@@ -82,10 +82,17 @@ const styles = StyleSheet.create({
     minHeight: 114,
   },
   curvePic:{
-    height: 460,
+    flex: 1,
+    height: 464,
+    marginTop: -3,
     borderRadius: 10,
-    borderWidth: 0,
+    borderWidth: -10,
     borderColor: '#fff',
+  },
+  curvePic2:{
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
   },
   productTitle: {
     flex: 1,
@@ -93,16 +100,19 @@ const styles = StyleSheet.create({
     paddingBottom: 6,
   },
   paddingQuote: {
+    flex: 1,
     marginTop: 5,
     marginBottom: 6,
     marginLeft: 125,
   },
   myImage:{
+    flex: 1,
     marginTop: 0,
     height: 240,
   },
   paddingName: {
-    marginTop: -360,
+    flex: 1,
+    marginTop: -120,
     marginLeft: 30,
     marginBottom: 5,
   },
