@@ -14,8 +14,8 @@ import NancyMandujano from '../screens/NancyMandujano';
 import UrielMandujano from '../screens/UrielMandujano';
 
 import NewScreen from '../screens/newScreen';
+import QuoteWriter from '../screens/QuoteWriter';
 import QuoteViewer from '../screens/QuoteViewer';
-import QuoteViewer2 from '../screens/QuoteViewer2';
 import QuoteViewer3 from '../screens/QuoteViewer3';
 import QuoteAlarm from '../screens/QuoteAlarm';
 
@@ -350,8 +350,8 @@ function AppStack(props) {
 
 
       <Drawer.Screen
-        name="QuoteViewer"
-        component={QuoteViewer}
+        name="QuoteWriter"
+        component={QuoteWriter}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
@@ -365,8 +365,8 @@ function AppStack(props) {
       />
 
       <Drawer.Screen
-        name="QuoteViewer2"
-        component={QuoteViewer2}
+        name="QuoteViewer"
+        component={QuoteViewer}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
@@ -459,7 +459,7 @@ function AppStack(props) {
 
       {//<Drawer.Screen
       //   name="Quote Viewer"
-      //   component={QuoteViewer2}
+      //   component={QuoteViewer}
       //   options={{
       //     drawerIcon: ({ focused }) => (
       //       <Icon
