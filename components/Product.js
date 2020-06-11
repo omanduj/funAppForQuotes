@@ -59,7 +59,7 @@ class Product extends React.Component {
 
           <TouchableWithoutFeedback onPress={() => this.toggleSwitch()}>
               <Block flex style={styles.productDescription}>
-                <Text color="darkblue" size={20} style={styles.paddingName}>Nancy Mandujano's Quotes</Text>
+                <Text flex color="darkblue" size={20} style={styles.paddingName}>Nancy Mandujano's Quotes</Text>
                 <Block style={{ paddingTop: 0, height: 310 }}>
                     {this.state.showAccordian ? <Accordion dataArray={data} /> : null}
                 </Block>
