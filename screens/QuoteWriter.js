@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform, TouchableOpacity } from 'react-native';
 import { Block, Text, theme, Button, Card, Input } from 'galio-framework';
 import { Container, Header, Content, Textarea, Form } from "native-base";
-
+import { View, TextInput } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -12,19 +12,37 @@ import { HeaderHeight } from "../constants/utils";
 import { NavigationContainer } from "../App.js"
 
 
-
 const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
 
+
+
+
+
 export default class QuoteWriter extends React.Component {
 
+
+
   render() {
+
     let pic = {
       uri: 'https://i.redd.it/29p3n3v8tjv21.jpg'
     };
 
+    function UselessTextInput(props) {
+      const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
+
+      return (
+        <TextInput
+          editable
+          maxLength={40}
+        />
+      );
+    }
+
     return (
+
       <Block flex style={styles.profile}>
 
         <Block flex>
@@ -40,15 +58,33 @@ export default class QuoteWriter extends React.Component {
 
 
         <Block flex style={styles.inputDetails}>
-            <Input flex placeholder="Input Title of Quote" rounded />
+        <Button  flex round uppercase color="red">Submit Quote</Button>
 
-            <Container flex style= {styles.textBoxStyles}>
+            <Input flex color="black" placeholder="Input Title of Quote" rounded />
+
+              {//<View
+                //style={{
+                  //backgroundColor: value,
+                  //borderBottomColor: '#000000',
+                  //borderBottomWidth: 1,
+                //}}>
+                //<UselessTextInput
+                  //multiline = "false"
+                  //numberOfLines={4}
+                  //onChangeText={text => onChangeText(text)}
+                  //value={value}
+                ///>
+              //</View>
+            }
+
+             <Container flex style= {styles.textBoxStyles}>
                <Content padder>
                  <Form>
                    <Textarea rowSpan={13} bordered placeholder="Input Quote" />
                  </Form>
                </Content>
              </Container>
+
 
         </Block>
       </Block>
