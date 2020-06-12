@@ -33,7 +33,7 @@ let pic2 = {
 class Product extends React.Component {
   state = { showAccordian: true };
   toggleSwitch = () => {
-    this.setState({ showAccordian: !this.state.showAccordian })
+    this.setState({ showAccordian : !this.state.showAccordian })
   }
 
 
