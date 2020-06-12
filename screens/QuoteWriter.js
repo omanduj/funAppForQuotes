@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform, TouchableOpacity } from 'react-native';
-import { Block, Text, theme, Button, Card, Input } from 'galio-framework';
-import { Container, Header, Content, Textarea, Form } from "native-base";
-import { View, TextInput } from 'react-native';
+import React, { Component, useState } from "react";
+
+
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground,TouchableWithoutFeedback, Platform, TouchableOpacity } from 'react-native';
+import { Block, Text, theme, Button, Toast, Input } from 'galio-framework';
+import { Container, Header, Content, Picker, Textarea, Form } from "native-base";
+import { View, TextInput, Alert } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -12,34 +14,61 @@ import { HeaderHeight } from "../constants/utils";
 import { NavigationContainer } from "../App.js"
 
 
+
+
+
 const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
 
 
-
-
-
 export default class QuoteWriter extends React.Component {
 
+  state = { quoteArea: '',
+            quoteTitle: '',
+          };
+   //sets quoteArea = text
+   //ASK ABOUT onKeyPress
+
+   constructor(props) {
+     super(props);
+     this.state = {
+       selected: undefined
+     };
+   }
+   onValueChange(value: string) {
+     this.setState({
+       selected: value
+     });
+   }
 
 
   render() {
+    const tester = () =>
+    {  nativeEvent: { key: 'Return' } }
 
-    let pic = {
-      uri: 'https://i.redd.it/29p3n3v8tjv21.jpg'
-    };
+    const createTwoButtonAlert = () =>
+      Alert.alert(
+        "Alert!!!",
+        "Are You Sure You Wish To Submit This Quote?",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") }
+        ],
+        { cancelable: false }
+      )
 
-    function UselessTextInput(props) {
-      const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
+    let pic = {  uri: 'https://i.pinimg.com/originals/97/e1/48/97e148eeafff33c760990c77b004d640.jpg'  };
 
-      return (
-        <TextInput
-          editable
-          maxLength={40}
-        />
-      );
-    }
+    console.log(this.state.quoteTitle, 'Title')
+    console.log(this.state.quoteArea, 'Quote')
+
+    let onChangeText = (text) => { this.setState({ quoteArea : text })}
+    let onChangeTitle = (text) => { this.setState({ quoteTitle : text })}
 
     return (
 
@@ -50,40 +79,42 @@ export default class QuoteWriter extends React.Component {
             source={pic}
             style={styles.myImage}>
               <Block flex style={styles.profileDetails}>
-                  <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: 25 }}>Quote Writer</Text>
+                <Text color="orange" size={45} style={{ paddingBottom: 650, marginLeft: 25 }}>Quote Writer</Text>
               </Block>
             </ImageBackground>
 
         </Block>
 
-
         <Block flex style={styles.inputDetails}>
-        <Button  flex round uppercase color="red">Submit Quote</Button>
+          <Button round uppercase color="red" onPress={createTwoButtonAlert}>  Submit Quote </Button>
 
-            <Input flex color="black" placeholder="Input Title of Quote" rounded />
+            <Block flex>
+              <TextInput
+                style={{ height: 100, borderColor: 'lightgreen', borderWidth: 5, marginTop: 20 }}
+                multiline = {false}
+                color="white"
+                numberOfLines={4}
+                placeholder="Enter Title"
+                placeholderTextColor="white"
+                textAlign="center"
+                onChangeText={text => onChangeTitle(text)}
+                value={this.state.quoteTitle}
+              />
+              <TextInput
+                style={{ height: 200, borderColor: 'lightgreen', borderWidth: 5, marginTop: 10 }}
+                multiline = {true}
+                color="white"
+                numberOfLines={4}
+                onKeyPress={this.nativeEvent}
+                placeholder="Enter Quote"
+                placeholderTextColor="white"
+                textAlign="center"
+              //  onKeyPress={tester()}
+                onChangeText={text => onChangeText(text)}
+                value={this.state.quoteArea}
+              />
+            </Block>
 
-              {//<View
-                //style={{
-                  //backgroundColor: value,
-                  //borderBottomColor: '#000000',
-                  //borderBottomWidth: 1,
-                //}}>
-                //<UselessTextInput
-                  //multiline = "false"
-                  //numberOfLines={4}
-                  //onChangeText={text => onChangeText(text)}
-                  //value={value}
-                ///>
-              //</View>
-            }
-
-             <Container flex style= {styles.textBoxStyles}>
-               <Content padder>
-                 <Form>
-                   <Textarea rowSpan={13} bordered placeholder="Input Quote" />
-                 </Form>
-               </Content>
-             </Container>
 
 
         </Block>
@@ -186,5 +217,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: '30%',
     position: 'absolute',
+  },
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center"
   },
 });
