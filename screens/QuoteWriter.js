@@ -24,16 +24,15 @@ const thumbMeasure = (width - 48 - 32) / 3;
 
 export default class QuoteWriter extends React.Component {
 
-  state = { quoteArea: '',
-            quoteTitle: '',
-          };
    //sets quoteArea = text
    //ASK ABOUT onKeyPress
 
    constructor(props) {
      super(props);
      this.state = {
-       selected: undefined
+       selected: undefined,
+       quoteArea: '',
+       quoteTitle: '',
      };
    }
    onValueChange(value: string) {
@@ -49,8 +48,8 @@ export default class QuoteWriter extends React.Component {
 
     const createTwoButtonAlert = () =>
       Alert.alert(
-        "Alert!!!",
-        "Are You Sure You Wish To Submit This Quote?",
+        "Quote Submission:",
+        this.state.quoteArea,
         [
           {
             text: "Cancel",
@@ -59,7 +58,7 @@ export default class QuoteWriter extends React.Component {
           },
           { text: "OK", onPress: () => console.log("OK Pressed") }
         ],
-        { cancelable: false }
+        { cancelable: true }
       )
 
     let pic = {  uri: 'https://i.pinimg.com/originals/97/e1/48/97e148eeafff33c760990c77b004d640.jpg'  };
@@ -73,8 +72,7 @@ export default class QuoteWriter extends React.Component {
     return (
 
       <Block flex style={styles.profile}>
-
-        <Block flex>
+          <Block flex>
             <ImageBackground
             source={pic}
             style={styles.myImage}>
@@ -89,30 +87,37 @@ export default class QuoteWriter extends React.Component {
           <Button round uppercase color="red" onPress={createTwoButtonAlert}>  Submit Quote </Button>
 
             <Block flex>
-              <TextInput
-                style={{ height: 100, borderColor: 'lightgreen', borderWidth: 5, marginTop: 20 }}
-                multiline = {false}
-                color="white"
-                numberOfLines={4}
-                placeholder="Enter Title"
-                placeholderTextColor="white"
-                textAlign="center"
-                onChangeText={text => onChangeTitle(text)}
-                value={this.state.quoteTitle}
-              />
-              <TextInput
-                style={{ height: 200, borderColor: 'lightgreen', borderWidth: 5, marginTop: 10 }}
-                multiline = {true}
-                color="white"
-                numberOfLines={4}
-                onKeyPress={this.nativeEvent}
-                placeholder="Enter Quote"
-                placeholderTextColor="white"
-                textAlign="center"
-              //  onKeyPress={tester()}
-                onChangeText={text => onChangeText(text)}
-                value={this.state.quoteArea}
-              />
+            <ScrollView keyboardDismissMode='on-drag'>
+                <TextInput
+                  style={{ height: 100, borderColor: 'lightgreen', borderWidth: 5, marginTop: 20 }}
+                  multiline = {false}
+                  color="white"
+                  numberOfLines={4}
+                  placeholder="Enter Title"
+                  placeholderTextColor="white"
+                  textAlign="center"
+                  onChangeText={text => onChangeTitle(text)}
+                  value={this.state.quoteTitle}
+                />
+                <TextInput
+                  style={{ height: 200, borderColor: 'lightgreen', borderWidth: 5, marginTop: 10 }}
+                  multiline = {true}
+                  color="white"
+                  numberOfLines={4}
+                  onKeyPress={this.nativeEvent}
+                  placeholder="Enter Quote"
+                  placeholderTextColor="white"
+                  textAlign="center"
+                  keyboardAppearance = {'dark'}
+                  scrollEnabled={true}
+                  blurOnSubmit={true}
+                  contextMenuHidden={true}
+
+                //  onKeyPress={tester()}
+                  onChangeText={text => onChangeText(text)}
+                  value={this.state.quoteArea}
+                />
+              </ScrollView>
             </Block>
 
 
